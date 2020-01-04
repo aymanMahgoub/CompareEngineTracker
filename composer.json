@@ -1,0 +1,15 @@
+{
+    "name": "ayman-mahgoub/compare-engine-tracker",
+    "description": "This package used to comare to object with the same type",
+    "require": {
+        "doctrine/annotations": "^1.6"
+    },
+    "license": "public",
+    "authors": [
+        {
+            "name": "Ayman Mahgoub",
+            "email": "ayman.mahgoub1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
