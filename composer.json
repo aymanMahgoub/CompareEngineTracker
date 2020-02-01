@@ -1,15 +1,39 @@
 {
     "name": "ayman-mahgoub/compare-engine-tracker",
-    "description": "This package used to comare to object with the same type",
+    "type": "library",
+    "keywords": [
+        "library",
+        "compareEngineTracker",
+        "compare-engine-tracker",
+        "doctrine",
+        "annotations"
+    ],
+    "description": "This package used to compare to objects with the same type",
     "require": {
         "doctrine/annotations": "^1.6"
     },
-    "license": "public",
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "license": "MIT",
     "authors": [
         {
             "name": "Ayman Mahgoub",
             "email": "ayman.mahgoub1@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "homepage": "https://github.com/aymanMahgoub/CompareEngineTracker",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CompareEngineTracker\\tests\\": "tests"
+        }
+    }
 }
