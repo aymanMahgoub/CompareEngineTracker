@@ -28,7 +28,7 @@
     "homepage": "https://github.com/aymanMahgoub/CompareEngineTracker",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "lib/"
         }
     },
     "autoload-dev": {

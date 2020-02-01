@@ -1,6 +1,6 @@
 <?php
 
-namespace Annotation;
+namespace CompareEngineTracker\Annotation;
 
 use Doctrine\Common\Annotations\Annotation;
 

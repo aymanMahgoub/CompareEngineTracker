@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace CompareEngineTracker\Services;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use InvalidArgumentException;
@@ -16,7 +16,7 @@ class CompareEngineTracker
 {
     protected $changedList = [];
 
-    protected $propertyTrackerAnnotation = "..\\Annotation\\PropertyTracker";
+    protected $propertyTrackerAnnotation = "CompareEngineTracker\Annotation\PropertyTracker";
 
     protected $isChanged = false;
 
@@ -65,7 +65,7 @@ class CompareEngineTracker
 
         return [
             'changedList' => $this->changedList,
-            'isChanger' => $this->isChanged
+            'isChanged' => $this->isChanged
         ];
     }
 
