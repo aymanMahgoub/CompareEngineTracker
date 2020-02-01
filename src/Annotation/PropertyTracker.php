@@ -9,4 +9,5 @@ use Doctrine\Common\Annotations\Annotation;
  */
 class PropertyTracker extends Annotation
 {
+
 }

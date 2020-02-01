@@ -3,8 +3,15 @@
 namespace Services;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use InvalidArgumentException;
+use ReflectionObject;
+use ReflectionProperty;
 
+/**
+ * Class CompareEngineTracker
+ *
+ * @package Services
+ */
 class CompareEngineTracker
 {
     protected $changedList = [];
@@ -26,20 +33,19 @@ class CompareEngineTracker
     }
 
     /**
-     * @param object $oldObject
-     * @param object $newObject
-     * @return JsonResponse
-     * @throws \RuntimeException
+     * @param $oldObject
+     * @param $newObject
      *
+     * @return array
      */
-    public function compare(object $oldObject, object $newObject)
+    public function compare($oldObject, $newObject)
     {
         if (!($oldObject instanceof $newObject)) {
-            throw new \RuntimeException(sprintf('The Two Object Must Be From The Same Type'));
+            throw new InvalidArgumentException(sprintf('The Two Object Must Be From The Same Type'));
         }
 
-        $reflectionObject = new \ReflectionObject($oldObject);
-        $reflectionProperties = $reflectionObject->getProperties(\ReflectionProperty::IS_PRIVATE | \ReflectionProperty::IS_PROTECTED);
+        $reflectionObject = new ReflectionObject($oldObject);
+        $reflectionProperties = $reflectionObject->getProperties(ReflectionProperty::IS_PRIVATE | ReflectionProperty::IS_PROTECTED);
         foreach ($reflectionProperties as $reflectionProperty) {
             $annotation = $this->reader->getPropertyAnnotation($reflectionProperty, $this->propertyTrackerAnnotation);
 
@@ -57,10 +63,10 @@ class CompareEngineTracker
             }
         }
 
-        return new JsonResponse(array(
+        return [
             'changedList' => $this->changedList,
             'isChanger' => $this->isChanged
-        ));
+        ];
     }
 
 }
